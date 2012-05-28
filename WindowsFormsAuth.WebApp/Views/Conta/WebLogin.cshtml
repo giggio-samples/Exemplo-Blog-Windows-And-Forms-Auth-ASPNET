@@ -1,0 +1,28 @@
+﻿<hgroup class="title">
+    <h2>Coloque seus dados abaixo.</h2>
+</hgroup>
+
+@using (Html.BeginForm()) {    
+    <fieldset>
+        <legend>Log in Form</legend>
+        <ol>
+            <li>
+                <label for="usuario">Usuário</label>
+                @Html.TextBox("Usuario")
+            </li>
+            <li>
+                <label for="senha">Senha</label>
+                @Html.Password("Senha")
+            </li>
+            <li>
+                @Html.CheckBox("LembreDeMim")
+                <label for="LembreDeMim" class="checkbox">Lembrar de mim?</label>                
+            </li>
+        </ol>
+        @if (!string.IsNullOrWhiteSpace(Html.ViewBag.Usuario))
+        {
+            <p><span class="mensagemErro">Usuário ou senha inválida.</span></p>
+        }
+        <input type="submit" value="Entrar" id="Entrar" />
+    </fieldset>
+}

@@ -1,0 +1,10 @@
+﻿@if (Request.IsAuthenticated) {
+    <p>
+        Hello, @User.Identity.Name!
+        @Html.ActionLink("Log Off", "LogOff", "Conta")
+    </p>
+} else {
+    <ul>
+        <li>@Html.ActionLink("Log on", "LogIn", "Conta", routeValues: null, htmlAttributes: new { id = "logonLink", data_dialog_title = "Identification" })</li>
+    </ul>
+}
